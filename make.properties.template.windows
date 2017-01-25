@@ -1,0 +1,92 @@
+#################################################
+# 
+# Environment Specific Properties for the
+# 
+# Makefile for Java
+#
+# (c) 2015 Matthias Nott
+#
+#################################################
+
+#################################################
+#
+# Note that since we are running on a variant of
+# Cygwin on Windows (MinGW), some of the processes
+# that the Makefile will refer to or start - such
+# as even javac - will reside outside of the folder
+# structure of the Unix shell that is running the
+# Makefile.
+#
+# That's why we use cygpath to determine the root
+# directory of the drive we are running in. We do
+# this only so that the default installation of
+# this development environment will work regardless
+# of where you actually copy it (as long as you
+# copy it into an hcp folder that resides in the
+# root of some drive).
+#
+# If you want to point to completely different
+# locations, you can hard wire your locations by
+# simplifying those statements below. For example,
+# if you have your JAVA_HOME in
+#
+# e:\hcp\java\jdk1.7.0_80
+#
+# Cygwin/MinGW see the drive letters differently.
+# What was e:\ is seen as /e.
+# 
+# The part of the command that will give you the
+# actual drive letter, e/, is this:
+#
+# /$(shell cygpath -wpm \\.|sed "s|:/||g" | tr A-Z a-z)
+#
+# To that, we then append (see below) the location
+# of the JDK.
+#
+# This means for you that instead of doing this,
+# if you have your jdk e.g. in
+#
+# c:\jdk\jdk7
+#
+# You can use this definition for JAVA_HOME:
+#
+# JAVA_HOME=/c/jdk/jdk7
+#
+# The same of course applies to the other
+# definitions using cygpath.
+#
+# Finally, should you be using sublimetext,
+# notice that the hcpcu.sublime-project contains
+# a hard-wired reference to \hcp in its build
+# reference, for Windows, at the bottom of the
+# file.
+#
+#################################################
+
+#
+# Our javac lives in $$JAVA_HOME/bin
+# 
+JAVA_HOME=/$(shell cygpath -wpm \\.|sed "s|:/||g" | tr A-Z a-z)/hcp/java/jdk1.7.0_80
+
+#
+# Classpath. This is what we need to compile the web application's
+# class files. It is not necessarily identical with what we need
+# to deploy into WEB-INF/lib: It is what we need to compile.
+#
+CLASSPATH=$(shell cd src; cygpath -wp ../WebRoot/WEB-INF/classes:../lib/gson-2.3.1.jar:../lib/log4j.jar:../lib/mysql-connector-java-5.1.7-bin.jar:../lib/ngdbc.jar:../lib/servlet-api.jar:.)
+
+#
+# Tomcat target deployment directory. This directory
+# contains the webapps directory, into which we are
+# going to deploy our web application.
+#
+TOMCAT=/$(shell cygpath -wpm \\.|sed "s|:/||g" | tr A-Z a-z)/hcp/apache-tomcat-8.0.24/
+
+#
+# Location of the Neo script
+#
+# On Windows (MinGW, Cygwin, etc.) we need a separate window for
+# the console. See: https://github.com/mintty/mintty/issues/56
+#
+HCP_SDK=start /$(shell cygpath -wpm \\.|sed "s|:/||g" | tr A-Z a-z)/hcp/hanacloudsdk/tools/neo.bat
+

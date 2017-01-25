@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Created-By: Apache Nscho-tschi 
+Archiver-Version: Santer  
+x-sap-ui5-BuildTimestamp: 20151130

@@ -1,0 +1,26 @@
+{
+    "folders":
+    [
+        {
+            "path": ".",
+            "folder_exclude_patterns": ["backup", "WEB-INF/classes"],
+            "follow_symlinks": true
+        }
+    ],
+    "settings":
+    {
+        "tab_size": 2
+    },
+    "build_systems":
+    [
+        {
+            "name": "Make",
+	        "working_dir": "${project_path}",
+            "shell_cmd": "make deploy",
+            "windows": {
+                "shell_cmd": "\\hcp\\git\\bin\\bash -l -c \"cd '${project_path}'; echo Building...; make deploy; echo Done.\"",
+                "shell": "true"
+            }
+        }
+    ]
+}

@@ -1,0 +1,27 @@
+#################################################
+# 
+# Environment Specific Properties for the
+# 
+# Makefile for Java
+#
+# (c) 2015 Matthias Nott
+#
+#################################################
+
+#
+# Our javac lives in $$JAVA_HOME/bin
+# 
+JAVA_HOME=/opt/Oracle_Java/jdk
+
+#
+# Tomcat target deployment directory. This directory
+# contains the webapps directory, into which we are
+# going to deploy our web application.
+#
+TOMCAT=/home/hcp/Documents/
+
+#
+# Location of the neo.sh script
+#
+HCP_SDK=/opt/hanacloudsdk/tools/neo.sh
+

@@ -1,0 +1,12 @@
+**/.DS_Store
+bin
+lib/sap/*jar
+WebRoot/WEB-INF/lib
+WebRoot/WEB-INF/classes
+hcpcu.sublime-workspace
+~$*
+tmp/*
+config/**/hcp.properties
+make.properties
+README.txt
+tests/hcpcu*

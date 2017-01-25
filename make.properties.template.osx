@@ -1,0 +1,28 @@
+#################################################
+# 
+# Environment Specific Properties for the
+# 
+# Makefile for Java - OSX Variant
+#
+# (c) 2015 Matthias Nott
+#
+#################################################
+
+#
+# Our javac lives in $$JAVA_HOME/bin
+# 
+JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home
+
+#
+# Tomcat target deployment directory. This directory
+# contains the webapps directory, into which we are
+# going to deploy our web application.
+#
+TOMCAT=/pgm/java/tomcat/apache-tomcat-8.0.23/
+
+#
+# Location of the neo.sh script
+#
+HCP_SDK=/pgm/java/hanacloudsdk/tools/neo.sh
+
+
