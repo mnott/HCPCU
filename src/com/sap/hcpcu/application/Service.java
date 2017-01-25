@@ -1,10 +1,10 @@
 package com.sap.hcpcu.application;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import com.sap.hcpcu.tools.Cache;
 import com.sap.hcpcu.worker.Worker;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 public class Service {
@@ -16,10 +16,6 @@ public class Service {
    */
   private static Configuration configuration = null;
 
-  /**
-   * The database pool
-   */
-  private static Worker        worker        = null;
 
   /**
    * The cache
@@ -52,25 +48,25 @@ public class Service {
 
 
   public static Worker getWorker() {
-    if ((worker == null) && "true".equals(getAttribute("dowork"))) {
-      log.debug("> Instantiating the Worker");
+    log.debug("> Instantiating the Worker");
 
-      /*
-       * Instantiate the worker
-       */
-      final String some          = getAttribute("some");
-      final String configuration = getAttribute("configuration");
-      final String parameters    = getAttribute("parameters");
+    Worker       worker        = null;
 
-      try {
-        log.debug("+ Attempting to instantiate worker pool using " + some + " " + configuration + " " + parameters);
-        worker = Worker.getInstance(some, configuration, parameters);
-      } catch (Exception e) {
-        log.error("! Error instantiating the Worker: " + e.getMessage());
-      }
+    /*
+     * Instantiate the worker
+     */
+    final String some          = getAttribute("some");
+    final String configuration = getAttribute("configuration");
+    final String parameters    = getAttribute("parameters");
 
-      log.debug("< Instantiating the Worker...");
+    try {
+      log.debug("+ Attempting to instantiate worker pool using " + some + " " + configuration + " " + parameters);
+      worker = Worker.getInstance(some, configuration, parameters);
+    } catch (Exception e) {
+      log.error("! Error instantiating the Worker: " + e.getMessage());
     }
+
+    log.debug("< Instantiating the Worker...");
 
     return worker;
   }
