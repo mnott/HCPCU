@@ -1,0 +1,48 @@
+{
+	"menu": [
+		{
+			"icon": "sap-icon://excel-attachment",
+			"id": "17",
+			"info": "",
+			"infostate": "Success",
+			"number": "4,023,113",
+			"numberunit": "Items",
+			"targetpage": "uploader.Uploader",
+			"targetpagetype": "JS",
+			"title": "Data Upload"
+		},
+		{
+			"icon": "img/agent.png",
+			"id": "18",
+			"info": "Error!",
+			"infostate": "Error",
+			"number": "34",
+			"numberunit": "Errors",
+			"targetpage": "inspection.Inspection",
+			"targetpagetype": "JS",
+			"title": "Inspection"
+		},
+		{
+			"icon": "sap-icon://mileage",
+			"id": "20",
+			"info": "Warning!",
+			"infostate": "Warning",
+			"number": "2,004,123",
+			"numberunit": "Barrels",
+			"targetpage": "oil.Oil",
+			"targetpagetype": "JS",
+			"title": "Peak Oil"
+		},
+		{
+			"icon": "sap-icon://sys-help",
+			"id": "24",
+			"info": "",
+			"infostate": "Success",
+			"number": "",
+			"numberunit": "",
+			"targetpage": "info.Info",
+			"targetpagetype": "XML",
+			"title": "About"
+		}
+	]
+}
