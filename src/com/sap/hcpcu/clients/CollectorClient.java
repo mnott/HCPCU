@@ -77,7 +77,7 @@ public class CollectorClient {
       try {
         log.debug("+ ----------------------------------------");
         log.debug("+ " + response.getStatusLine());
-        //log.debug("+ " + EntityUtils.toString(response.getEntity()));
+        log.debug("+ " + EntityUtils.toString(response.getEntity()));
         log.debug("+ ----------------------------------------");
       } finally {
         response.close();

@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
   <display-name>HCPCU</display-name>
+  <resource-ref>
+    <res-ref-name>jdbc/DefaultDB</res-ref-name>
+    <res-type>javax.sql.DataSource</res-type>
+  </resource-ref>
+  <servlet>
+    <display-name>ApplicationServlet</display-name>
+    <servlet-name>ApplicationServlet</servlet-name>
+    <servlet-class>com.sap.hcpcu.application.Application</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ApplicationServlet</servlet-name>
+    <url-pattern>/Application/*</url-pattern>
+  </servlet-mapping>
   <servlet>
     <display-name>ResourceServlet</display-name>
     <servlet-name>ResourceServlet</servlet-name>
@@ -18,6 +31,18 @@
     <param-name>com.sap.ui5.resource.DEV_MODE</param-name>
     <param-value>false</param-value>
   </context-param>
+  <filter>
+    <filter-name>HttpRequestAnalyzer</filter-name>
+    <filter-class>com.sap.hcpcu.tools.HttpRequestAnalyzer</filter-class>
+    <init-param>
+      <param-name>compressed</param-name>
+      <param-value>true</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>HttpRequestAnalyzer</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
   <filter>
     <display-name>CacheControlFilter</display-name>
     <filter-name>CacheControlFilter</filter-name>
@@ -55,6 +80,25 @@
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
+  
+  <servlet>
+	<servlet-name>ODataServlet</servlet-name> 
+	<servlet-class>org.apache.cxf.jaxrs.servlet.CXFNonSpringJaxrsServlet</servlet-class>
+	<init-param>
+	  <param-name>javax.ws.rs.Application</param-name>
+      <param-value>org.apache.olingo.odata2.core.rest.app.ODataApplication</param-value>
+    </init-param>
+    <init-param>
+      <param-name>org.apache.olingo.odata2.service.factory</param-name>
+      <param-value>com.sap.hcpcu.persistence.RegistrationListServiceFactory</param-value>
+    </init-param>
+    <load-on-startup>2</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ODataServlet</servlet-name>
+    <url-pattern>/personslist.svc/*</url-pattern>
+  </servlet-mapping>
+    
   <servlet>
     <description></description>
     <display-name>Collector</display-name>
@@ -66,4 +110,16 @@
     <servlet-name>Collector</servlet-name>
     <url-pattern>/collector</url-pattern>
   </servlet-mapping>
+
+  <servlet>
+    <description></description>
+    <display-name>RegistrationServlet</display-name>
+    <servlet-name>RegistrationServlet</servlet-name>
+    <servlet-class>com.sap.hcpcu.persistence.RegistrationServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RegistrationServlet</servlet-name>
+    <url-pattern>/register</url-pattern>
+  </servlet-mapping>
+
 </web-app>
