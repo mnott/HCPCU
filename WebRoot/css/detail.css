@@ -1,0 +1,42 @@
+.sapMTB {
+    padding: 0;
+    height: initial;
+    background: rgba(229,229,229,0);
+    border-bottom: 1px solid #cdcdcd;
+}
+.RelatedDiv{
+	border-color: orange;
+    border-width: .12rem;
+}
+.CustomListText>div>div{
+	text-align: left;
+    color: black;
+    
+}
+.CustomListText, .DetailList>ul>li {
+    padding-left: 2rem;
+   
+    margin-bottom: .2rem;
+    border: none;
+}  
+.RelatedTText{
+	color: orange;
+    padding-bottom: .5rem;
+    text-shadow: 0 0.0625em 0 rgba(225, 166, 0, 0.5);
+}
+.sap-desktop .sapMList .sapMLIB.sapMALI:not(.sapMLIBActive){
+     background: rgb(235,235,235);
+}
+.sap-desktop .sapMList .sapMLIB.sapMALI:hover:not(.sapMLIBActive) {
+    background: rgb(207,207,207);
+}
+.sapMList .sapMLIB.sapMALI:not(.sapMLIBActive) {
+    background: rgb(235,235,235);
+    
+}
+.sapMSemanticPage {
+    height: 100%;
+    width: 100%;
+    background-color: white;
+}
+

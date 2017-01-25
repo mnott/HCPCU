@@ -4,10 +4,9 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/config"/>
         <wb-resource deploy-path="/WEB-INF/lib" source-path="/lib/other"/>
-        <!--
 	    <wb-resource deploy-path="/WEB-INF/lib" source-path="/lib/jpa"/>
-        -->
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/META-INF"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/data"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/META-INF"/>
         <property name="context-root" value="HCPCU"/>
         <property name="java-output-path" value="/HCPCU/WebRoot/WEB-INF/classes"/>
     </wb-module>
